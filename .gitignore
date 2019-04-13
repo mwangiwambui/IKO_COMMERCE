@@ -12,3 +12,7 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+dbv/config.php
+dbv/data/meta/revision
+config/database.php
+composer.lock
