@@ -11,6 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes(['verify'=>true]);
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/changePassword','HomeController@showChangePasswordForm');
+Route::get('profile',function(){
+    //Only verified users may enter...
+})->middleware('verified');
