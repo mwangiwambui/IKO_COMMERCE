@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DemoMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -15,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     /**
@@ -45,7 +47,7 @@ class HomeController extends Controller
         ]);
         //Change Password
         $user = Auth::user();
-        $user->password = bcrypt($request->get('new-password'));
+        $user->password = Hash::make($request->get('new-password'));
         $user->save();
         return redirect()->back()->with("success","Password changed successfully !");
     }
