@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/','FrontController@index')->name('home');
+Route::get('/products','FrontController@products')->name('products');
+Route::resource('/cart', 'CartController');
+Auth::routes(['verify'=>true]);
+Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/changePassword','HomeController@showChangePasswordForm');
+
+/*Route::get('profile',function(){
+    //Only verified users may enter...
+})->middleware('verified'); */
+
