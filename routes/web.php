@@ -21,8 +21,10 @@ Auth::routes(['verify'=>true]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/changePassword','HomeController@showChangePasswordForm');
+Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changePassword');
 
+Route::resource('/addresses', 'AddressController');
+Route::post('/storeAddresses', 'AddressController@store')->name('storeAddresses');
 /*Route::get('profile',function(){
     //Only verified users may enter...
 })->middleware('verified'); */
