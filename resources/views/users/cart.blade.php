@@ -2,6 +2,8 @@
 
 @section('content')
 	<!-- breadcrumb -->
+	<br>
+	<br>
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
@@ -14,7 +16,7 @@
 			</span>
 		</div>
 	</div>
-		
+
 
 	<!-- Shoping Cart -->
 	<form class="bg0 p-t-75 p-b-85">
@@ -85,7 +87,7 @@
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 							<div class="flex-w flex-m m-r-20 m-tb-5">
 								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
-									
+
 								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
 									Apply coupon
 								</div>
@@ -129,7 +131,7 @@
 								<p class="stext-111 cl6 p-t-2">
 									There are no shipping methods available. Please double check your address, or contact us if you need any help.
 								</p>
-								
+
 								<div class="p-t-15">
 									<span class="stext-112 cl8">
 										Calculate Shipping
@@ -151,13 +153,13 @@
 									<div class="bor8 bg0 m-b-22">
 										<input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
 									</div>
-									
+
 									<div class="flex-w">
 										<div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
 											Update Totals
 										</div>
 									</div>
-										
+
 								</div>
 							</div>
 						</div>
@@ -184,7 +186,7 @@
 			</div>
 		</div>
 	</form>
-		
+
 
 
 @endsection
