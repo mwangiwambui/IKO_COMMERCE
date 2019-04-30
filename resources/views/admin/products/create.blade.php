@@ -22,10 +22,19 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3">
-                                        <label for="text-input" class=" form-control-label">Text Input</label>
+                                        {{ Form::label('name', 'Name') }}
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        <input type="text" id="text-input" name="text-input" placeholder="Text" class="form-control">
+                                        {{ Form::text('name', null, array('class' => 'form-control','required'=>'','minlength'=>'5','placeholder'=>'Enter name of category')) }}
+                                        <small class="form-text text-muted">This is a help text</small>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        {{ Form::label('description', 'Description') }}
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        {{ Form::textarea('description', null, array('class' => 'form-control','required'=>'','placeholder'=>'Enter description')) }}
                                         <small class="form-text text-muted">This is a help text</small>
                                     </div>
                                 </div>

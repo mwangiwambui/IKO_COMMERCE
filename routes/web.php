@@ -19,7 +19,7 @@ Route::get('/products','FrontController@products')->name('products');
 Route::resource('/cart', 'CartController');
 Auth::routes(['verify'=>true]);
 Route::get('/logout', 'Auth\LoginController@logout');
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changePassword');
 
@@ -29,7 +29,7 @@ Route::post('/storeAddresses', 'AddressController@store')->name('storeAddresses'
     //Only verified users may enter...
 })->middleware('verified'); */
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'verified'],function(){
   Route::get('/',function(){
         return view('admin.index');
     })->name('admin.index');
