@@ -20,7 +20,7 @@ Route::resource('/cart', 'CartController');
 Auth::routes(['verify'=>true]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changePassword');
 
 Route::resource('/addresses', 'AddressController');
@@ -29,3 +29,19 @@ Route::post('/storeAddresses', 'AddressController@store')->name('storeAddresses'
     //Only verified users may enter...
 })->middleware('verified'); */
 
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+  Route::get('/',function(){
+        return view('admin.index');
+    })->name('admin.index');
+    //Route::post('toggledeliver/{orderId}','OrderController@toggledeliver')->name('toggle.deliver');
+    // Route::post('toggleaccepted/{industryId}','IndustryController@toggleaccepted')->name('toggle.accepted');
+    //Route::post('product/image-upload/{productId})','ProductsController@uploadImages');
+    Route::resource('product','ProductsController');
+    Route::resource('category','CategoriesController');
+    //Route::resource('users','UsersController');
+   // Route::get('orders/{type?}', 'OrderController@Orders');
+  //  Route::get('requests/{type?}', 'IndustryController@Industries');
+
+
+});
+Route::post('/login/custom' ,'LoginController@login')->name('login.custom');
