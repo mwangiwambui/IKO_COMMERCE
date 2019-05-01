@@ -19,7 +19,7 @@ Route::get('/products','FrontController@products')->name('products');
 Route::resource('/cart', 'CartController');
 Auth::routes(['verify'=>true]);
 Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changePassword');
 
