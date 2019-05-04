@@ -16,3 +16,4 @@ dbv/config.php
 dbv/data/meta/revision
 config/database.php
 composer.lock
+public/uploads

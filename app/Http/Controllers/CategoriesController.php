@@ -39,7 +39,7 @@ class CategoriesController extends Controller
     {
         $formInput = $request->all();
         Categories::create($formInput);
-        return back();
+        return back()->with('message','Category successfully added');
     }
 
     /**
@@ -51,11 +51,11 @@ class CategoriesController extends Controller
     public function show($categoryId)
     {
         if (!empty($categoryId)){
-            $products = Categories::find($categoryId)->products;
+            $products = Categories::find($categoryId)->product;
 
         }
         $categories = Categories::all();
-        return view('admin.category.index',compact(['categories','products']));
+        return view('admin.categories.index',compact(['categories','products']));
 
     }
 

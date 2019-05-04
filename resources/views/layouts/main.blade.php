@@ -234,7 +234,7 @@
 <script src="{{asset('vendor/slick/slick.min.js')}}"></script>
 <script src="{{asset('js/slick-custom.js')}}"></script>
 <!--===============================================================================================-->
-<script src="{{asset('')}}vendor/parallax100/parallax100.js"></script>
+<script src="{{asset('vendor/parallax100/parallax100.js')}}"></script>
 <script>
     $('.parallax100').parallax100();
 </script>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\Products;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class ProductsController extends Controller
 {
@@ -38,7 +40,23 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formInput= $request->except('image');
+        try {
+            $this->validate($request, [
+                'name' => 'required',
+                'price' => 'required',
+                'image' => 'image|mimes:png,jpg,jpeg|max:10000'
+            ]);
+        } catch (ValidationException $e) {
+        }
+        $image = $request->image;
+        if ($image){
+            $imageName= $image->getClientOriginalName();
+            $image->move('uploads',$imageName);
+            $formInput['image']= $imageName;
+        }
+        Products::create($formInput);
+        return back()->with('message','Product has successfully been added');
     }
 
     /**

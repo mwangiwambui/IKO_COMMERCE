@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header-v3">
+<header class="header-v4">
     <!-- Header desktop -->
     <div class="container-menu-desktop trans-03">
         <div class="wrap-menu-desktop">
