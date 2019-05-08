@@ -9,28 +9,19 @@
             <div class="flex-w flex-sb-m p-b-52">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
                     <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                        All Products
+                        All Categories
                     </button>
 
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                        Women
-                    </button>
+                    @forelse($category->take(4) as $categories)
+                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{$categories->id}}">
+                            {{$categories->name}}
+                        </button>
+                    @empty
+                        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                            All Categories
+                        </button>
+                    @endforelse
 
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                        Men
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-                        Bag
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-                        Shoes
-                    </button>
-
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-                        Watches
-                    </button>
                 </div>
 
                 <div class="flex-w flex-c-m m-tb-10">
@@ -250,7 +241,7 @@
 
             <div class="row isotope-grid">
                 @forelse($products as $product)
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category_id}}">
                     <!-- Block2 -->
                     <div class="block2">
                         <div class="block2-pic hov-img0">
@@ -274,8 +265,8 @@
 
                             <div class="block2-txt-child2 flex-r p-t-3">
                                 <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                    <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+                                    <img class="icon-heart1 dis-block trans-04" src="{{asset('images/icons/icon-heart-01.png')}}" alt="ICON">
+                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{asset('images/icons/icon-heart-02.png')}}" alt="ICON">
                                 </a>
                             </div>
                         </div>

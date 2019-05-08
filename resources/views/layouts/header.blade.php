@@ -14,20 +14,12 @@
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li>
-                            <a href="index.html">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Homepage 1</a></li>
-                                <li><a href="home-02.html">Homepage 2</a></li>
-                                <li><a href="home-03.html">Homepage 3</a></li>
-                            </ul>
+                            <a href="{{route('home')}}">Home</a>
+
                         </li>
 
                         <li>
-                            <a href="about.html">About</a>
-                        </li>
-
-                        <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="{{route('products')}}">Shop</a>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +47,7 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="{{asset('images/logo2.png')}}" alt="IMG-LOGO"></a>
+            <a href="{{route('home')}}"><img src="{{asset('images/logo2.png')}}" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->
@@ -81,36 +73,22 @@
         <ul class="main-menu-m">
 
             <li>
-                <a href="index.html">Home</a>
-                <ul class="sub-menu-m">
-                    <li><a href="index.html">Homepage 1</a></li>
-                    <li><a href="home-02.html">Homepage 2</a></li>
-                    <li><a href="home-03.html">Homepage 3</a></li>
-                </ul>
+                <a href="{{route('home')}}">Home</a>
+
                 <span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</span>
             </li>
 
             <li>
-                <a href="product.html">Shop</a>
+                <a href="{{route('products')}}">Shop</a>
             </li>
 
             <li>
-                <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+                <a href="{{url('/cart')}}" class="label1 rs1" data-label1="hot">Features</a>
             </li>
 
-            <li>
-                <a href="blog.html">Blog</a>
-            </li>
 
-            <li>
-                <a href="about.html">About</a>
-            </li>
-
-            <li>
-                <a href="contact.html">Contact</a>
-            </li>
         </ul>
     </div>
 
@@ -150,7 +128,7 @@
 						{{Auth::user()->name}}
 					</span>
                 <li class="p-b-13">
-                    <a href="index.html" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="{{route('home')}}" class="stext-102 cl2 hov-cl1 trans-04">
                         Home
                     </a>
                 </li>
