@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Products;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -13,7 +15,9 @@ class CartController extends Controller
      */
     public function index()
     {
-       return view('users.cart');
+        $cartItems = Cart::content();
+
+       return view('users.cart',compact('cartItems'));
     }
 
     /**
@@ -58,6 +62,11 @@ class CartController extends Controller
     {
         //
     }
+    public function addItem($id){
+        $product = Products::find($id);
+        Cart::add($id,$product->name,1,$product->price,$product->image);
+        return back();
+    }
 
     /**
      * Update the specified resource in storage.
@@ -68,7 +77,8 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Cart::update($id,['qty'=>$request->qty]);
+        return back();
     }
 
     /**
@@ -79,6 +89,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Cart::remove($id);
+       return back();
     }
 }

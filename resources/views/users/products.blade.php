@@ -40,13 +40,17 @@
 
                 <!-- Search product -->
                 <div class="dis-none panel-search w-full p-t-10 p-b-15">
+                    <form action="/search" method="POST" role="search">
+                        {{csrf_field()}}
                     <div class="bor8 dis-flex p-l-15">
-                        <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                        <button type="submit" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                             <i class="zmdi zmdi-search"></i>
                         </button>
 
-                        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+                        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="q" placeholder="Search">
+
                     </div>
+                    </form>
                 </div>
 
                 <!-- Filter -->
@@ -247,8 +251,8 @@
                         <div class="block2-pic hov-img0">
                             <img src="{{url('uploads',$product->image)}}" alt="IMG-PRODUCT">
 
-                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                Quick View
+                            <a href="{{route('cart.addItem',$product->id)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                Add to cart
                             </a>
                         </div>
 
