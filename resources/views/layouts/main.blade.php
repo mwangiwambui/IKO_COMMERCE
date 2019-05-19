@@ -157,18 +157,18 @@
 </script>
 <!--===============================================================================================-->
 <script src="{{asset('js/main.js')}}"></script>
-<script>
-    $('.cart_add').find('a').click(function (event){
-        event.preventDefault();
-        $.ajax({
-            url: $(this).attr('href')
-            ,success: function(data) {
-                alert('Item added to cart')
-                $('#cart_tag').load(document.URL +  ' #cart_tag');
-            }
-       });
-        return false; //for good measure
-    });
+//<script>
+   // $('.cart_add').find('a').click(function (event){
+      //  event.preventDefault();
+      //  $.ajax({
+        //    url: $(this).attr('href')
+          //  ,success: function(data) {
+           //     alert('Item added to cart')
+            //    $('#cart_tag').load(document.URL +  ' #cart_tag');
+          //  }
+      // });
+    //    return false; //for good measure
+   // });
 </script>
 
 </body>

@@ -17,6 +17,7 @@ class CartController extends Controller
     {
         $cartItems = Cart::content();
 
+
        return view('users.cart',compact('cartItems'));
     }
 
@@ -64,22 +65,9 @@ class CartController extends Controller
     }
     public function addItem($id){
         $product = Products::find($id);
-        //if (!$product){
-         //  abort(404);
-        //}
-        $cart = session()->get('cart');
-        //if (!$cart) {
-           // Cart::add($id, $product->name, 1, $product->price, $product->image);
 
-           // return back()->with('success', 'Product added to cart successfully!');
-       // }
-       if (isset($cart[$product['id']])){
-            $product->qty = $cart[$product['id']['qty']] +=1;
-        }
-       else
-           $product->qty=1;
 
-        Cart::add($id, $product->name, $product->qty, $product->price, ['size'=>'medium'],$product->image);
+        Cart::add($id, $product->name, 1, $product->price, ['size'=>'medium'],$product->image);
         return back()->with('success', 'Product added to cart successfully!');
 
 
