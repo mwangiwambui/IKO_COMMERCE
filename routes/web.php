@@ -50,11 +50,12 @@ Route::group(['prefix'=>'admin','middleware'=>'verified'],function(){
 Route::post('/login/custom' ,'LoginController@login')->name('login.custom');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('shipping-info','CheckoutController@shipping')->name('checkout.shipping');
+
+});
 Route::any('/search',function (){
     $q = Input::get('q');
     $user = \App\Products::where('name','LIKE','%'.$q.'%')->orWhere('description','LIKE','%'.$q.'%')->get();
     if(count($user) > 0)
         return view('users.search')->withDetails($user)->withQuery ( $q );
     else return view ('users.search')->withMessage('No Details found. Try to search again !');
-});
 });

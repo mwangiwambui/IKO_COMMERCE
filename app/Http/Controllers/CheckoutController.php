@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CheckoutController extends Controller
 {
     public function shipping(){
-        return view('users.cart');
+        return view('users.addresses');
     }
     public function payment(){
         return view('users.payment');

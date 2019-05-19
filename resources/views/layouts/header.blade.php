@@ -28,7 +28,7 @@
 
                 <div class="wrap-icon-header flex-w flex-r-m h-full">
                     <div class="flex-c-m h-full p-r-25 bor6">
-                        <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="{{Cart::count()}}">
+                        <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" id="cart_tag" data-notify="{{Cart::count()}}">
                             <a href="{{route('cart.index')}}">
                             <i class="zmdi zmdi-shopping-cart"></i>
                             </a>
