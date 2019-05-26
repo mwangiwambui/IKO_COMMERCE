@@ -37,7 +37,7 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         //Validate
-        $request->validate([
+        $this->validate($request,[
             'addressline' => 'required',
             'city' => 'required',
             'state' => 'required',
@@ -46,8 +46,8 @@ class AddressController extends Controller
             'phone' => 'required',
         ]);
 
-        $address = Addresses::create(['addressline' => $request->addressline,'city' => $request->city, 'state' => $request->state, 'zip' => $request->zip, 'country' => $request->country, 'phone' => $request->phone, 'user_id' => Auth()->id()]);
-        return redirect('/cart');
+        Auth::user()->address()->create($request->all());
+        return redirect()->route('checkout.payment');
     }
 
     /**

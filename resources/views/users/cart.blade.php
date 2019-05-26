@@ -48,7 +48,7 @@
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
-                                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="qty" value="{{$cartItem->qty}}">
+                                            <input class="mtext-104 cl3 txt-center num-product" id="qty" type="number" name="qty" value="{{$cartItem->qty}}">
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
@@ -125,10 +125,10 @@
 								</span>
 							</div>
 						</div>
-                        <a href="{{route('checkout.shipping')}}" style="text-decoration: none;color: white">
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                        <a " style="text-decoration: none;color: white">
+						<a href="{{route('checkout.shipping')}}" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Proceed to Checkout
-						</button>
+						</a>
                         </a>
 					</div>
 				</div>
@@ -136,6 +136,18 @@
 		</div>
 	</form>
 
+    <script>
+        $('.zmdi-minus').click(function () {
+            var qty = document.getElementById("qty").value;
+            item =
+            result = qty.stepDown(1);
 
 
+        })
+        $('.zmdi-plus').click(function () {
+            var qty = document.getElementById("qty").value;
+            result = qty.stepUp(1);
+        })
+
+    </script>
 @endsection

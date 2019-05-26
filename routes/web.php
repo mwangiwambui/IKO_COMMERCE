@@ -27,7 +27,7 @@ Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem'
 Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changePassword');
 
 Route::resource('addresses', 'AddressController');
-Route::post('/storeAddresses', 'AddressController@store')->name('storeAddresses');
+
 /*Route::get('profile',function(){
     //Only verified users may enter...
 })->middleware('verified'); */
@@ -36,13 +36,13 @@ Route::group(['prefix'=>'admin','middleware'=>'verified'],function(){
   Route::get('/',function(){
         return view('admin.index');
     })->name('admin.index');
-    //Route::post('toggledeliver/{orderId}','OrderController@toggledeliver')->name('toggle.deliver');
-    // Route::post('toggleaccepted/{industryId}','IndustryController@toggleaccepted')->name('toggle.accepted');
+    Route::post('toggledeliver/{orderId}','OrderController@toggledeliver')->name('toggle.deliver');
+    //Route::post('toggleaccepted/{industryId}','IndustryController@toggleaccepted')->name('toggle.accepted');
     //Route::post('product/image-upload/{productId})','ProductsController@uploadImages');
     Route::resource('product','ProductsController');
     Route::resource('category','CategoriesController');
     //Route::resource('users','UsersController');
-   // Route::get('orders/{type?}', 'OrderController@Orders');
+   Route::get('orders/{type?}', 'OrderController@Orders');
   //  Route::get('requests/{type?}', 'IndustryController@Industries');
 
 
@@ -50,6 +50,8 @@ Route::group(['prefix'=>'admin','middleware'=>'verified'],function(){
 Route::post('/login/custom' ,'LoginController@login')->name('login.custom');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('shipping-info','CheckoutController@shipping')->name('checkout.shipping');
+    Route::get('payment','CheckoutController@payment')->name('checkout.payment');
+    Route::post('store-payment','CheckoutController@storePayment')->name('payment.store');
 
 });
 Route::any('/search',function (){

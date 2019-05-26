@@ -59,6 +59,24 @@
                     <a href="{{route('product.create')}}">
                         <i class="fas fa-table"></i>Products</a>
                 </li>
+                <li class="has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-trophy"></i>Orders
+                        <span class="arrow"><i class="fas fa-angle-down"></i></span>
+                    </a>
+                    <ul class="list-unstyled navbar__sub-list js-sub-list" style="display: none;">
+                        <li>
+                            <a href="{{url('admin/orders/pending')}}">Pending Orders</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/orders/delivered')}}">Delivered Orders</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/orders')}}">All Orders</a>
+                        </li>
+                    </ul>
+                </li>
+
 
             </ul>
         </nav>

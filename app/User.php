@@ -28,7 +28,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
     public function address(){
-        return $this->hasMany(Address::class);
+        return $this->hasMany(Addresses::class);
+    }
+    public function orders(){
+        return $this->hasMany(Orders::class);
     }
 
 
