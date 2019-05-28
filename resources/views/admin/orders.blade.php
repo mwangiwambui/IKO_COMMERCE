@@ -1,6 +1,8 @@
-@extends('layouts.main');
+@extends('admin.layout.main');
 @section('content')
-
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
     <div class="row" style="margin-left: 245px;">
         <div class="col-12">
             <div class="card">
@@ -62,6 +64,9 @@
                         </div><br><br><br><br><hr><br><br>
                     @endforeach
                 </div>
+            </div>
+        </div>
+    </div>
             </div>
         </div>
     </div>
