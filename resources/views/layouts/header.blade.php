@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="header-v3">
+<header class="header-v4">
     <!-- Header desktop -->
     <div class="container-menu-desktop trans-03">
         <div class="wrap-menu-desktop">
@@ -14,20 +14,12 @@
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li>
-                            <a href="index.html">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Homepage 1</a></li>
-                                <li><a href="home-02.html">Homepage 2</a></li>
-                                <li><a href="home-03.html">Homepage 3</a></li>
-                            </ul>
+                            <a href="{{route('home')}}">Home</a>
+
                         </li>
 
                         <li>
-                            <a href="about.html">About</a>
-                        </li>
-
-                        <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="{{route('products')}}">Shop</a>
                         </li>
                     </ul>
                 </div>
@@ -35,9 +27,11 @@
                 <!-- Icon header -->
 
                 <div class="wrap-icon-header flex-w flex-r-m h-full">
-                    <div class="flex-c-m h-full p-r-25 bor6">
-                        <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
-                            <i class="zmdi zmdi-shopping-cart"></i>
+                    <div class="flex-c-m h-full p-r-25 bor6"  id="cart-wrap">
+                        <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" id="cart_tag" data-notify="{{Cart::count()}}">
+                            <a href="{{route('cart.index')}}">
+                            <i class="zmdi zmdi-shopping-cart" id="cart_image"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -55,17 +49,11 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="{{asset('images/logo2.png')}}" alt="IMG-LOGO"></a>
+            <a href="{{route('home')}}"><img src="{{asset('images/logo2.png')}}" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->
-        <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-            <div class="flex-c-m h-full p-r-5">
-                <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
-                    <i class="zmdi zmdi-shopping-cart"></i>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Button show menu -->
         <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
@@ -81,36 +69,22 @@
         <ul class="main-menu-m">
 
             <li>
-                <a href="index.html">Home</a>
-                <ul class="sub-menu-m">
-                    <li><a href="index.html">Homepage 1</a></li>
-                    <li><a href="home-02.html">Homepage 2</a></li>
-                    <li><a href="home-03.html">Homepage 3</a></li>
-                </ul>
+                <a href="{{route('home')}}">Home</a>
+
                 <span class="arrow-main-menu-m">
 						<i class="fa fa-angle-right" aria-hidden="true"></i>
 					</span>
             </li>
 
             <li>
-                <a href="product.html">Shop</a>
+                <a href="{{route('products')}}">Shop</a>
             </li>
 
             <li>
-                <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+                <a href="{{route('cart.index')}}" class="label1 rs1" data-label1="hot">Features</a>
             </li>
 
-            <li>
-                <a href="blog.html">Blog</a>
-            </li>
 
-            <li>
-                <a href="about.html">About</a>
-            </li>
-
-            <li>
-                <a href="contact.html">Contact</a>
-            </li>
         </ul>
     </div>
 
@@ -150,20 +124,8 @@
 						{{Auth::user()->name}}
 					</span>
                 <li class="p-b-13">
-                    <a href="index.html" class="stext-102 cl2 hov-cl1 trans-04">
+                    <a href="{{route('home')}}" class="stext-102 cl2 hov-cl1 trans-04">
                         Home
-                    </a>
-                </li>
-
-                <li class="p-b-13">
-                    <a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-                        My Wishlist
-                    </a>
-                </li>
-
-                <li class="p-b-13">
-                    <a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-                        My Account
                     </a>
                 </li>
                 <li class="p-b-13">
@@ -189,64 +151,10 @@
 
             <div class="sidebar-gallery w-full p-tb-30">
 					<span class="mtext-101 cl5">
-						@ CozaStore
+						@ IkoCOMMERCE
 					</span>
 
-                <div class="flex-w flex-sb p-t-36 gallery-lb">
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-01.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-01.jpg')}}');"></a>
-                    </div>
 
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-02.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-02.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-03.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-03.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-04.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-04.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-05.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-05.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-06.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-06.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-07.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-07.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-08.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-08.jpg')}}');"></a>
-                    </div>
-
-                    <!-- item gallery sidebar -->
-                    <div class="wrap-item-gallery m-b-10">
-                        <a class="item-gallery bg-img1" href="{{asset('images/gallery-09.jpg')}}" data-lightbox="gallery"
-                           style="background-image: url('{{asset('images/gallery-09.jpg')}}');"></a>
-                    </div>
-                </div>
             </div>
 
             <div class="sidebar-gallery w-full">
@@ -254,96 +162,9 @@
 						About Us
 					</span>
 
-                <p class="stext-108 cl6 p-t-27">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus vulputate hendrerit. Praesent faucibus erat vitae rutrum gravida. Vestibulum tempus mi enim, in molestie sem fermentum quis.
-                </p>
             </div>
         </div>
     </div>
 </aside>
 
-
-<!-- Cart -->
-<div class="wrap-header-cart js-panel-cart">
-    <div class="s-full js-hide-cart"></div>
-
-    <div class="header-cart flex-col-l p-l-65 p-r-25">
-        <div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2">
-					Your Cart
-				</span>
-
-            <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-                <i class="zmdi zmdi-close"></i>
-            </div>
-        </div>
-
-        <div class="header-cart-content flex-w js-pscroll">
-            <ul class="header-cart-wrapitem w-full">
-                <li class="header-cart-item flex-w flex-t m-b-12">
-                    <div class="header-cart-item-img">
-                        <img src="{{asset('images/item-cart-01.jpg')}}" alt="IMG">
-                    </div>
-
-                    <div class="header-cart-item-txt p-t-8">
-                        <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                            White Shirt Pleat
-                        </a>
-
-                        <span class="header-cart-item-info">
-								1 x $19.00
-							</span>
-                    </div>
-                </li>
-
-                <li class="header-cart-item flex-w flex-t m-b-12">
-                    <div class="header-cart-item-img">
-                        <img src="{{asset('images/item-cart-02.jpg')}}" alt="IMG">
-                    </div>
-
-                    <div class="header-cart-item-txt p-t-8">
-                        <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                            Converse All Star
-                        </a>
-
-                        <span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-                    </div>
-                </li>
-
-                <li class="header-cart-item flex-w flex-t m-b-12">
-                    <div class="header-cart-item-img">
-                        <img src="{{asset('images/item-cart-03.jpg')}}" alt="IMG">
-                    </div>
-
-                    <div class="header-cart-item-txt p-t-8">
-                        <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                            Nixon Porter Leather
-                        </a>
-
-                        <span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-                    </div>
-                </li>
-            </ul>
-
-            <div class="w-full">
-                <div class="header-cart-total w-full p-tb-40">
-                    Total: $75.00
-                </div>
-
-                <div class="header-cart-buttons flex-w w-full">
-                    <a href="{{url('/cart')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                        View Cart
-                    </a>
-
-                    <a href="{{url('/cart')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                        Check Out
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        ,
