@@ -19,124 +19,90 @@
 
 	<!-- Shoping Cart -->
 	<form class="bg0 p-t-75 p-b-85">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-					<div class="m-l-25 m-r--38 m-lr-0-xl">
-						<div class="wrap-table-shopping-cart">
-							<table class="table-shopping-cart">
-								<tr class="table_head">
-									<th class="column-1">Product</th>
-									<th class="column-2"></th>
-									<th class="column-3">Price</th>
-									<th class="column-4">Quantity</th>
-									<th class="column-5">Total</th>
-								</tr>
-                                @foreach($cartItems as $cartItem)
-								<tr class="table_row">
-									<td class="column-1">
-										<div class="how-itemcart1">
-											<img src="{{url('uploads',$cartItem->image)}}" alt="IMG">
-										</div>
-									</td>
-									<td class="column-2">{{$cartItem->name}}</td>
-									<td class="column-3">{{$cartItem->price}}</td>
-									<td class="column-4">
-                                       <div class="wrap-num-product flex-w m-l-auto m-r-0">
-
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" id="minus">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-                                           {!! Form::open(['route'=>['cart.update',$cartItem->rowId],'method'=>'PUT']) !!}
-                                            <input id="id" type="text" name="id" hidden value="{{$cartItem->rowId}}">
-                                           <input class="mtext-104 cl3 txt-center num-product" id="qty" type="number" max="{{$cartItem->quantity}}" name="qty" value="{{$cartItem->qty}}">
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="add">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-
-									</td>
-									<td class="column-5">$ {{$cartItem->qty*$cartItem->price}}</td>
-								</tr>
-                                @endforeach
 
 
-							</table>
-						</div>
+		<div class="super_container">
+  <div class="">
+  	<div class="col-12">
+  		<div class="card">
+  			<div class="card-header">
+  				<h4 class="card-title">Your Cart</h4>
+  				<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+  			</div>
+  			<div class="card-content collapse show">
+  				<div class="card-body">
+  					<div class="" style="margin-bottom: 75px;">
+              <div class="row">
+                <div class="col-md-2"style="font-size:15px;">
+                  Items - {{Cart::count()}}
+                </div>
+                <div class="col-md-2"style="font-size:15px;">
+                  Tax - ${{Cart::tax()}}
+                </div>
+                <div class="col-md-2" style="font-size:15px;">
+                  Sub Total - ${{Cart::subtotal()}}
+                </div>
+                <div class="col-md-3" style="font-size:15px;">
+                  Grand Total - ${{Cart::total()}}
+                </div>
+                <div class="col-md-3">
+                  <a class="btn btn-primary pull-right navbar-right" style="font-size:18px;"  href="{{route('checkout.shipping')}}">Checkout</a>
+                </div>
+              </div>
+            </div>
 
-						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
-							<div class="flex-w flex-m m-r-20 m-tb-5">
-								<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
+  					<div class="table-responsive">
+  						<table class="table">
+  							<thead>
+  								<tr>
+  									<th>#</th>
+                    <th>Product</th>
+                    <th>Price/unit</th>
+                    <th>Quantity</th>
+  									<th>refresh</th>
+  									<th>Delete</th>
 
-								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
-									Apply coupon
-								</div>
-							</div>
+  								</tr>
+  							</thead>
+  							<tbody>
+                            <?php $value = 1 ?>
+                    @foreach($cartItems as $cartItem)
+  													<tr>
+														<td style="font-size:18px;" scope="row">{{$value++}}</td>
+          									<td style="font-size:18px;" scope="row">{{$cartItem->name}}</td>
+                            <td style="font-size:18px;">{{$cartItem->price}}</td>
+                            <td>
+                                {!! Form::open(['route'=>['cart.update',$cartItem->rowId],'method'=>'PUT']) !!}
+                                <input name="qty" type="text" class="form-control" style="width:90px;height:35px;" value="{{$cartItem->qty}}">
+                            </td>
 
-							<div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-								<input type="submit" value="Update Cart">
-							</div>
-						</div>
-                        {!! Form::close() !!}
-					</div>
-				</div>
+                            <td>
+                              <button style="float: left" type="submit" class="btn btn-primary"><i class="fas fa-sync-alt"></i></button>
+                              {!! Form::close() !!}
+                              {{--<a class="button" href="{{route('cart.destroy',$cartItem->rowId}}"Delete--}}
+                              {{--</a>--}}
+                            </td>
 
-				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
-					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-						<h4 class="mtext-109 cl2 p-b-30">
-							Cart Totals
-						</h4>
+                            <td>
+                              <form action="{{route('cart.destroy',$cartItem->rowId)}}" method="POST">
+                                  {{csrf_field()}}
+                                  {{method_field('DELETE')}}
+                                  <button class="btn btn-danger  btn-glow  mx-1" type="submit"><i class="far fa-trash-alt"></i></button>
+                              </form>
+                            </td>
 
-						<div class="flex-w flex-t bor12 p-b-13">
-							<div class="size-208">
-								<span class="stext-110 cl2">
-									Subtotal:
-								</span>
-							</div>
-
-							<div class="size-209">
-								<span class="mtext-110 cl2">
-									${{Cart::subtotal()}}
-								</span>
-							</div>
-						</div>
-                        <div class="flex-w flex-t p-t-27 p-b-33">
-                            <div class="size-208">
-								<span class="mtext-101 cl2">
-									Items:
-								</span>
-                            </div>
-
-                            <div class="size-209 p-t-1">
-								<span class="mtext-110 cl2">
-									{{Cart::count()}}
-								</span>
-                            </div>
-                        </div>
-
-						<div class="flex-w flex-t p-t-27 p-b-33">
-							<div class="size-208">
-								<span class="mtext-101 cl2">
-									Total:
-								</span>
-							</div>
-
-							<div class="size-209 p-t-1">
-								<span class="mtext-110 cl2">
-									${{Cart::total()}}
-								</span>
-							</div>
-						</div>
-                        <a  style="text-decoration: none;color: white">
-						<a href="{{route('checkout.shipping')}}" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-							Proceed to Checkout
-						</a>
-                        </a>
-					</div>
-				</div>
-			</div>
-		</div>
+  													</tr>
+                      @endforeach
+  							</tbody>
+  						</table>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+    </div>
+  </div>
+		
 	</form>
 
 

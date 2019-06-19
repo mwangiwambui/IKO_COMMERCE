@@ -4,7 +4,7 @@
 
     <!-- Product -->
 <div></div>
-    <div class="bg0 m-t-23 p-b-140" >
+    <div class="bg0 m-t-23 p-b-140" ><br>
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
@@ -25,12 +25,6 @@
                 </div>
 
                 <div class="flex-w flex-c-m m-tb-10">
-                    <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-                        <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-                        <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-                        Filter
-                    </div>
-
                     <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                         <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                         <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
@@ -72,7 +66,7 @@
                                     <div class="cart_add">
                                         <a href="{{route('cart.addItem',$product->id)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                              Add to cart
-                            </a>
+                                        </a>
                                     </div>
                         </div>
 
@@ -91,8 +85,8 @@
                                 <div>{{ $stockLevel }}</div>
 
                                 <span class="stext-105 cl3">
-									{{$product->price}}
-								</span>
+                									<p>Price ${{$product->price}}</p>
+                								</span>
                             </div>
 
                             <div class="block2-txt-child2 flex-r p-t-3">
