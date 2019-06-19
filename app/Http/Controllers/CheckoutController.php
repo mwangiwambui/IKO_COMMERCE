@@ -26,7 +26,7 @@ class CheckoutController extends Controller
 // Token is created using Checkout or Elements!
 // Get the payment token ID submitted by the form:
         $token = $request->stripeToken;
-        $tamount = (int)str_replace(',','',Cart::total());
+        $tamount = (int)str_replace(',','',Cart::total()*100);
         try{
 
 
