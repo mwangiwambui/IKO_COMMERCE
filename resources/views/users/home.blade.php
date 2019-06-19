@@ -89,7 +89,7 @@
         <div class="container">
             <div class="p-b-10" style="text-align: center">
                 <h3 class="ltext-103 cl5">
-                    Product Overview
+                    Book Overview
                 </h3>
             </div>
 
@@ -162,8 +162,8 @@
                                     </a>
 
                                     <span class="stext-105 cl3">
-									$ {{$product->price}}
-								</span>
+                    									<p>Price ${{$product->price}}</p>
+                    								</span>
                                 </div>
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
@@ -182,15 +182,7 @@
             </div>
 
             <!-- Pagination -->
-            <div class="flex-c-m flex-w w-full p-t-38">
-                <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
-                    1
-                </a>
-
-                <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
-                    2
-                </a>
-            </div>
+            
         </div>
         </div>
     </section>
