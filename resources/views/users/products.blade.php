@@ -3,8 +3,8 @@
 @section('content')
 
     <!-- Product -->
-
-    <div class="bg0 m-t-23 p-b-140">
+<div></div>
+    <div class="bg0 m-t-23 p-b-140" >
         <div class="container">
             <div class="flex-w flex-sb-m p-b-52">
                 <div class="flex-w flex-l-m filter-tope-group m-tb-10">
@@ -60,13 +60,20 @@
                 @forelse($products as $product)
                 <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category_id}}">
                     <!-- Block2 -->
-                    <div class="block2">
-                        <div class="block2-pic hov-img0">
-                            <img src="{{url('uploads',$product->image)}}" alt="IMG-PRODUCT">
-
-                            <a href="{{route('cart.addItem',$product->id)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                                Add to cart
+                    <div class="block2" style="padding:10px 10px; margin-bottom:80px; ">
+                        @if($loop->last)
+                            <div class="block2-pic hov-img0 label-new" data-label="New">
+                                @else
+                                    <div class="block2-pic hov-img0">
+                                        @endif
+                                        <a href="{{route('productdetails',$product->id)}}" class="image">
+                                            <img src="{{url('uploads',$product->image)}}" width="150px" height="500px" alt="IMG-PRODUCT">
+                                        </a>
+                                    <div class="cart_add">
+                                        <a href="{{route('cart.addItem',$product->id)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                             Add to cart
                             </a>
+                                    </div>
                         </div>
 
                         <div class="block2-txt flex-w flex-t p-t-14">

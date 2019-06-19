@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <!-- breadcrumb -->
+
     <div class="container">
         <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
             <a href="{{route('home')}}" class="stext-109 cl8 hov-cl1 trans-04">
@@ -86,11 +87,13 @@
                                         </div>
                                     </div>
                                     @if($product->quantity>0)
+                                        <div class="cart_add">
                                    <a href="{{route('cart.addItem',$product->id)}}" style="text-decoration: none">
                                    <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
                                         Add to cart
                                     </button>
                                    </a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>

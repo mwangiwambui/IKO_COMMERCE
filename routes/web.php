@@ -34,7 +34,8 @@ Route::resource('addresses', 'AddressController');
 
 Route::group(['prefix'=>'admin','middleware'=>'verified'],function(){
   Route::get('/',function(){
-        return view('admin.index');
+     $products = \App\Products::all();
+        return view('admin.index',compact('products'));
     })->name('admin.index');
     Route::post('toggledeliver/{orderId}','OrderController@toggledeliver')->name('toggle.deliver');
     //Route::post('toggleaccepted/{industryId}','IndustryController@toggleaccepted')->name('toggle.accepted');

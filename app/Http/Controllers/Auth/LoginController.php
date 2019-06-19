@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Products;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -46,6 +47,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ( $user->users_role == 2 ) {// do your margic here
+
             return redirect()->route('admin.index');
         }
 

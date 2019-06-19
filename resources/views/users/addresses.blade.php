@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="bg0 m-t-23 p-b-140">
+    <div class="bg0 m-t-23 p-b-140" >
         <div class="container">
 
     <h1>Add Address Information</h1>

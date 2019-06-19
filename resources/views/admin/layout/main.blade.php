@@ -45,6 +45,7 @@
 
 </div>
 
+
 <!-- Jquery JS-->
 <script src="{{asset('admintemp/vendor/jquery-3.2.1.min.js')}}"></script>
 <!-- Bootstrap JS-->
@@ -76,6 +77,7 @@
         $('#example').DataTable();
     } );
 </script>
+
 </body>
 
 </html>

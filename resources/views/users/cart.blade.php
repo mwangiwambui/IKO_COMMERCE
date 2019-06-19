@@ -2,8 +2,7 @@
 
 @section('content')
 	<!-- breadcrumb -->
-	<br>
-	<br>
+
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
 			<a href="{{route('home')}}" class="stext-109 cl8 hov-cl1 trans-04">

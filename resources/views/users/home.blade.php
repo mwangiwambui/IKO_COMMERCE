@@ -2,12 +2,12 @@
 @extends('layouts.main')
 
 @section('content')
-
+<div class="" >
     <!-- Slider -->
-    <section class="section-slide"  style="height: 400px;">
-        <div class="wrap-slick1 rs2-slick1 container">
-            <div class="slick1">
-                <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('images/book1.jpg')}}); height: 300px;" data-thumb="images/thumb-01.jpg">
+    <section class="section-slide" >
+        <div class="wrap-slick1 rs2-slick1 container" >
+            <div class="slick1" >
+                <div class="item-slick1 bg-overlay1 w3-opacity-max" style="background-image: url({{asset('images/book1.jpg')}}); height: 300px;" data-thumb="images/thumb-01.jpg">
                     <div class="container h-full">
                         <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                             <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('images/book2.jpg')}}); height: 300px;" data-thumb="images/thumb-02.jpg">
+                <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('images/book5.jpg')}});  height: 300px;" data-thumb="images/thumb-02.jpg">
                     <div class="container h-full">
                         <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                             <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('images/book4.jpg')}}); height: 300px;" data-thumb="images/thumb-03.jpg">
+                <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('images/book4.jpg')}});  height: 300px;" data-thumb="images/thumb-03.jpg">
                     <div class="container h-full">
                         <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                             <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
@@ -194,7 +194,7 @@
         </div>
         </div>
     </section>
-
+</div>
 
 
 

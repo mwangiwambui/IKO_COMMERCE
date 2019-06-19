@@ -40,11 +40,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row" style="margin-left: 250px;">
                             <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                                <div class="form-check" >
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
@@ -57,9 +56,10 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                            </div>
+                            <div class="col-md-4">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="align-items: end">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif

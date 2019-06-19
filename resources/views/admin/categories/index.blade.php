@@ -22,7 +22,6 @@
 
                             @endif
 
-
                             <div class="card-body card-block">
                                 {!! Form::open(['route' => 'category.store', 'method' => 'post']) !!}
 

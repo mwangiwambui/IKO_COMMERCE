@@ -119,10 +119,61 @@
                         </div>
 
                     </div>
+                <div>
+                    <table id="example" style="padding-left:-100px;" class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">name</th>
+                            <th scope="col">description</th>
+                            <th scope="col">author</th>
+                            <th scope="col">image</th>
+                            <th scope="col">price</th>
+                            <th scope="col">quantity</th>
+                            <th scope="col">category</th>
+                            <th scope="col">action</th>
+                            <!-- <th scope="col">Image</th> -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $value=1; ?>
+                        @if(!empty($products))
+                            @forelse($products as $product)
+                                <tr>
+                                    <td>{{$value++}}</td>
+                                    <td>{{$product->name}}</td>
+                                    <td>{{$product->description}}</td>
+                                    <td>{{$product->author}}</td>
+                                    <td>{{$product->image}}</td>
+                                    <td>{{$product->price}}</td>
+                                    <td>{{$product->quantity}}</td>
+                                    <td>{{$categories[$product->category_id]}}</td>
+                                    <td>
+                                        <form action="{{route('product.destroy',$product->id)}}"  method="POST">
+                                            {{csrf_field()}}
+                                            {{method_field('DELETE')}}
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete" type="submit"><i class="zmdi zmdi-delete"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <th>1</th>
+                                    <td>No Products</td>
+                                </tr>
+                            @endforelse
+                        @endif
+
+                        </tbody>
+                    </table>
+                </div>
+
 
             </div>
         </div>
     </div>
+
 
 
 @endsection

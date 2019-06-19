@@ -3,8 +3,8 @@
 
     <script src="https://js.stripe.com/v3/"></script>
 
-    <br><br><br><br><br><br><br><br>
-    <div class="container">
+
+    <div class="container" style="margin-top: 300px;">
         <div class="">
             <div class="col-12">
                 <div class="card">

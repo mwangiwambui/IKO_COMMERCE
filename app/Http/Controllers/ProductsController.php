@@ -16,7 +16,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //return view('admin.products.create');
+        $products = Products::all();
+        return view('admin.products.create', compact('products'));
     }
 
     /**
@@ -27,8 +28,8 @@ class ProductsController extends Controller
     public function create()
     {
         $categories= Categories::pluck('name','id');
-
-        return view('admin.products.create',compact('categories'));
+        $products = Products::all();
+        return view('admin.products.create',compact('categories','products'));
 
     }
 
@@ -69,9 +70,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($categoryId)
     {
-        //
+        if (!empty($categoryId)){
+            $categoryname = Categories::pluck('name')->where('id','categoryId');
+
+        }
+        return view('admin.products.create' ,compact('categoryname'));
     }
 
     /**
@@ -105,6 +110,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Products::destroy($id);
+        return back();
     }
 }
