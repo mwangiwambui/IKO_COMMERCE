@@ -4,7 +4,8 @@
     <script src="https://js.stripe.com/v3/"></script>
 
 
-    <div class="container" style="margin-top: 300px;">
+    <br><br><br><br><br><br><br><br>
+    <div class="container">
         <div class="">
             <div class="col-12">
                 <div class="card">

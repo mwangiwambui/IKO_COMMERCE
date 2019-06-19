@@ -2,7 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -57,7 +58,8 @@
 		</span>
 </div>
 
-
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{{asset('js/stripe.js')}}"></script>
 <!--===============================================================================================-->
 <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
@@ -92,21 +94,10 @@
 
 <!--===============================================================================================-->
 <script src="{{asset('js/main.js')}}"></script>
-<script src="https://js.stripe.com/v3/"></script>
-<script src="{{asset('js/stripe.js')}}"></script>
-//<script>
-    // $('.cart_add').find('a').click(function (event){
-    //  event.preventDefault();
-    //  $.ajax({
-    //    url: $(this).attr('href')
-    //  ,success: function(data) {
-    //     alert('Item added to cart')
-    //    $('#cart_tag').load(document.URL +  ' #cart_tag');
-    //  }
-    // });
-    //    return false; //for good measure
-    // });
-</script>
+
+
+
+
 
 </body>
 </html>

@@ -8,10 +8,7 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
+
 
     public function index()
     {
