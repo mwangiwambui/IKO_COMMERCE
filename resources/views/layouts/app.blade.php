@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'IKO') }}</title>
 
     <title>@yield('title','IKO')</title>
 
@@ -13,6 +13,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
 
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{asset('images/logo2.png')}}"/>
@@ -51,7 +55,7 @@
 <body class="animsition">
     <div id="app">
 
-            <nav class="limiter-menu-desktop p-l-45">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'IKO') }}
