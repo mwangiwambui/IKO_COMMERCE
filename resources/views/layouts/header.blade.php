@@ -35,13 +35,7 @@
                             </a>
                         </div>
                     </div>
-                    @if(Auth::check())
-                    <div class="flex-c-m h-full p-r-25 bor6">
-                        <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Track Order</button>
-                        </div>
-                    </div>
-                    @endif
+
                     <div class="flex-c-m h-full p-lr-19">
                     <li class="dropdown">
                         @if(Auth::check())

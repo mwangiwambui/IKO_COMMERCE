@@ -29,6 +29,6 @@ class OrderController extends Controller
             $order->delivered = "0";
         }
         $order->save();
-        return back();
+        return back()->with('message', 'Order status has been changed');
     }
 }

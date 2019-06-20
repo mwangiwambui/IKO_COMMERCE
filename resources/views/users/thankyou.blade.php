@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- Page Content -->
-    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br>
     <div class="container">
         <div class="">
             <div class="col-12">

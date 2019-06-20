@@ -151,6 +151,7 @@
                                 <div class="cart_add">
                                 <a href="{{route('cart.addItem',$product->id)}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                     Add to Cart
+
                                 </a>
                                 </div>
                             </div>
@@ -163,7 +164,13 @@
 
                                     <span class="stext-105 cl3">
                     									<p>Price ${{$product->price}}</p>
+
                     								</span>
+                                    @if($success = Session::has('message'))
+                                        <div class="alert alert-success" id="demo" role="alert">
+                                            {{session('message')}}
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <div class="block2-txt-child2 flex-r p-t-3">

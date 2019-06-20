@@ -27,14 +27,7 @@
                         <div class="card-body card-block">
                             {!! Form::open(['route' => 'product.store','method'=> 'post','files'=>true]) !!}
 
-                                <div class="row form-group">
-                                    <div class="col col-md-3">
-                                        <label class=" form-control-label">Static</label>
-                                    </div>
-                                    <div class="col-12 col-md-9">
-                                        <p class="form-control-static">Username</p>
-                                    </div>
-                                </div>
+
 
                                 <div class="row form-group">
                                     <div class="col col-md-3">
@@ -50,7 +43,7 @@
                                         {{ Form::label('description', 'Description') }}
                                     </div>
                                     <div class="col-12 col-md-9">
-                                        {{ Form::textarea('description', null, array('class' => 'form-control','required'=>'','placeholder'=>'Enter description')) }}
+                                        {{ Form::text('description', null, array('class' => 'form-control','required'=>'','placeholder'=>'Enter description')) }}
                                         <small class="form-text text-muted">This is a help text</small>
                                     </div>
                                 </div>
@@ -103,7 +96,7 @@
                                     {{ Form::label('synopsis', 'Synopsis') }}
                                 </div>
                                 <div class="col-12 col-md-9">
-                                    {{ Form::text('synopsis', null, array('class' => 'form-control','required'=>'','placeholder'=>'Enter synopsis of book')) }}
+                                    {{ Form::textarea('synopsis', null, array('class' => 'form-control','required'=>'','placeholder'=>'Enter synopsis of book')) }}
                                     <small class="form-text text-muted">This is a help text</small>
                                 </div>
                             </div>
@@ -125,7 +118,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">name</th>
-                            <th scope="col">description</th>
                             <th scope="col">author</th>
                             <th scope="col">image</th>
                             <th scope="col">price</th>
@@ -143,7 +135,6 @@
                                 <tr>
                                     <td>{{$value++}}</td>
                                     <td>{{$product->name}}</td>
-                                    <td>{{$product->description}}</td>
                                     <td>{{$product->author}}</td>
                                     <td>{{$product->image}}</td>
                                     <td>{{$product->price}}</td>

@@ -42,7 +42,7 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $formInput= $request->except('image');
-        try {
+
             $this->validate($request, [
                 'name' => 'required',
                 'price' => 'required',
@@ -51,9 +51,7 @@ class ProductsController extends Controller
                 'synopsis' => 'required',
                 'category_id' => 'required',
                 'image' => 'image|mimes:png,jpg,jpeg|max:10000'
-            ]);
-        } catch (ValidationException $e) {
-        }
+           ]);
         $image = $request->image;
         if ($image){
             $imageName= $image->getClientOriginalName();

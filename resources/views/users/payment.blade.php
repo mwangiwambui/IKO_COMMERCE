@@ -13,6 +13,29 @@
                         <div class="card-title">
                             <h4>Enter Card Details</h4>
                         </div>
+                        <div class="p-t-40">
+                            <div class="flex-c-m flex-w p-b-18">
+                                <a href="#" class="m-all-1">
+                                    <img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+                                </a>
+
+                                <a href="#" class="m-all-1">
+                                    <img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+                                </a>
+
+                                <a href="#" class="m-all-1">
+                                    <img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+                                </a>
+
+                                <a href="#" class="m-all-1">
+                                    <img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+                                </a>
+
+                                <a href="#" class="m-all-1">
+                                    <img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+                                </a>
+                            </div>
+                        </div>
                         <div class="card-content collapse show">
                             <div class="card-body">
                                 <div class="" style="margin-bottom: 50px;margin-top: 50px;">
@@ -32,7 +55,7 @@
                                             <div class="col-md-8">
 
 
-                                                <button class="btn btn-dark btn-block btn-glow  mx-1 " style="font-size:18px; padding:10px; width:100%;">Pay : $<span style="font-size:20px;">{{(int)str_replace(',','',Cart::total())}}</span></button>
+                                                <button class="btn btn-dark btn-block btn-glow  mx-1 " style="font-size:18px; padding:10px; width:100%;">Pay : $<span style="font-size:20px;">{{(double)str_replace(',','',Cart::total())}}</span></button>
                                             </div>
                                             <div class="col-md-2">
 
