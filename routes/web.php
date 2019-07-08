@@ -20,12 +20,13 @@ Route::get('/products','FrontController@products')->name('products');
 
 Route::get('products/{product}','FrontController@productdetails')->name('productdetails');
 Auth::routes(['verify'=>true]);
+Route::get('/resetpassword','HomeController@changePassword')->name('changePassword');
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'FrontController@index');
 Route::resource('cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
-Route::get('/changePassword','HomeController@showChangePasswordForm')->name('changePassword');
+Route::get('/changePassword{token?/value?}','HomeController@showChangePasswordForm')->name('password.reset');
 
 Route::resource('addresses', 'AddressController');
 
