@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\DemoMail;
+use App\User;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +13,8 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    use SendsPasswordResetEmails;
+
+    use AuthenticatesUsers;
     public function __construct()
     {
         $this->middleware('guest');
@@ -41,7 +44,7 @@ class HomeController extends Controller
             'new-password' => 'required|string|min:6|confirmed',
         ]);
         //Change Password
-        $user = Auth::user();
+        $user = User::where('email',$request->input('email'))->first();
 
         $user->password = Hash::make($request->get('new-password'));
         $user->save();
