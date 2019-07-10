@@ -17,18 +17,17 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form class="form-horizontal" method="POST" action="{{ route('changePassword') }}">
-                            {{ csrf_field() }}
-
-                            <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
-                                <label for="new-password" class="col-md-4 control-label">Current Password</label>
+                        <form class="form-horizontal" method="GET" action="{{ route('changePassword') }}">
+                            @csrf
+                            <div class="form-group{{ $errors->has('email') ? ' is-invalid' : '' }}">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="current-password" type="password" class="form-control" name="current-password" required>
+                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                                    @if ($errors->has('current-password'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('current-password') }}</strong>
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                     @endif
                                 </div>
