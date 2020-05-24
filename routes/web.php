@@ -22,7 +22,7 @@ Route::get('products/{product}','FrontController@productdetails')->name('product
 Auth::routes(['verify'=>true]);
 Route::get('/resetpassword','HomeController@changePassword')->name('changePassword');
 Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/home', 'FrontController@index');
+//Route::get('/home', 'FrontController@index');
 Route::resource('cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
